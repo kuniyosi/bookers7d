@@ -8,5 +8,14 @@
         </tr>
       <% end %>
     </tbody>
+    <% else %>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
   <% end %>
 </table>
