@@ -6,10 +6,10 @@ class SearchesController < ApplicationController
 
     if @model == "User"
       @users = User.looks(params[:search], params[:word])
-      render "search_path"
+      render :index
     else
       @books = Book.looks(params[:search], params[:word])
-      render "search_path"
+      render :index
     end
   end
 end
