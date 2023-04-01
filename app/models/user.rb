@@ -43,17 +43,15 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  def self.looks(search, word)
+  def self.search_for(word, search)
     if search == "perfect"
-      @user = User.where("name LIKE?", "#{word}")
+      User.where(name: word)
     elsif search == "forward"
-      @user = User.where("name LIKE?","#{word}%")
+      User.where("name LIKE?", word + '%')
     elsif search == "backward"
-      @user = User.where("name LIKE?","%#{word}")
-    elsif search == "partial"
-      @user = User.where("name LIKE?","%#{word}%")
+      User.where("name LIKE?", word + '%')
     else
-      @user = User.all
+      User.where("name LIKE?", '%' + word + '%')
     end
   end
 end
