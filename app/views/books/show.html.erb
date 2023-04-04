@@ -26,17 +26,18 @@
           <td class = "favorite-btn">
           　<%= render "favorites/favorite-btn", book: @book %>
         　</td>
-          <td>
-           <p>コメント件数：<%= @book.book_comments.count %></p>
+          <td class="book-comments-counter">
+            <%= render "book_comments/counter", book: @book %>
           </td>
         </tr>
       </table>
-     <div class = "new_comment">
-      <%= render 'book_comments/index', book: @book %>
-     </div>
-     <div class = "comment_area">
+      
+      <div class = "book-comments-index">
+       <%= render 'book_comments/index', book: @book %>
+      </div>
+
       <%= render 'book_comments/form', book: @book, book_comment: @book_comment %>
-     </div>
+
     </div>
   </div>
 </div>
