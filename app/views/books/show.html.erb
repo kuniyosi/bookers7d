@@ -23,7 +23,7 @@
           <% if @book.user == current_user %>
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %></td>
           <% end %>
-          <td class = "favorite-btn">
+          <td class="favorite-<%= @book.id %>">
           　<%= render "favorites/favorite-btn", book: @book %>
         　</td>
           <td class="book-comments-counter">
@@ -31,7 +31,7 @@
           </td>
         </tr>
       </table>
-      
+
       <div class = "book-comments-index">
        <%= render 'book_comments/index', book: @book %>
       </div>
